@@ -1,7 +1,7 @@
-package org.inria.restlet.mta.resources;
+package org.inria.restlet.resources;
 
-import org.inria.restlet.mta.backend.Backend;
-import org.inria.restlet.mta.backend.Buffet;
+import org.inria.restlet.backend.Backend;
+import org.inria.restlet.backend.Buffet;
 import org.json.JSONObject;
 import org.restlet.ext.json.JsonRepresentation;
 import org.restlet.representation.Representation;

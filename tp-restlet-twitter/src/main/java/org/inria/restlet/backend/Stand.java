@@ -1,4 +1,4 @@
-package org.inria.restlet.mta.backend;
+package org.inria.restlet.backend;
 
 public class Stand {
 		

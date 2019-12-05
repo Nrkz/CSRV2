@@ -1,7 +1,7 @@
-package org.inria.restlet.mta.backend;
+package org.inria.restlet.backend;
 
-import org.inria.restlet.mta.database.api.Database;
-import org.inria.restlet.mta.database.api.impl.Restaurant;
+import org.inria.restlet.database.api.Database;
+import org.inria.restlet.database.api.impl.Restaurant;
 
 /**
  *

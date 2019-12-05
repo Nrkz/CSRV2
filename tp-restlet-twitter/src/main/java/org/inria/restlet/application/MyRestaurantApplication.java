@@ -1,8 +1,8 @@
-package org.inria.restlet.mta.application;
+package org.inria.restlet.application;
 
 
-import org.inria.restlet.mta.resources.BuffetRessource;
-import org.inria.restlet.mta.resources.ClientRessource;
+import org.inria.restlet.resources.BuffetRessource;
+import org.inria.restlet.resources.ClientRessource;
 import org.restlet.Application;
 import org.restlet.Context;
 import org.restlet.Restlet;

@@ -1,6 +1,6 @@
-package org.inria.restlet.mta.backend;
+package org.inria.restlet.backend;
 
-import org.inria.restlet.mta.database.api.impl.*;
+import org.inria.restlet.database.api.impl.*;
 
 public class Client extends Thread{
 

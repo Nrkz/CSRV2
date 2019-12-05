@@ -1,10 +1,10 @@
-package org.inria.restlet.mta.database.api;
+package org.inria.restlet.database.api;
 
 import java.util.Collection;
 import java.util.List;
 
-import org.inria.restlet.mta.backend.Buffet;
-import org.inria.restlet.mta.backend.Client;
+import org.inria.restlet.backend.Buffet;
+import org.inria.restlet.backend.Client;
 
 /**
  *

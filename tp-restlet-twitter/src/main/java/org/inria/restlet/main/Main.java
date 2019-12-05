@@ -1,8 +1,8 @@
-package org.inria.restlet.mta.main;
+package org.inria.restlet.main;
 
-import org.inria.restlet.mta.application.MyRestaurantApplication;
-import org.inria.restlet.mta.backend.Backend;
-import org.inria.restlet.mta.database.api.impl.Restaurant;
+import org.inria.restlet.application.MyRestaurantApplication;
+import org.inria.restlet.backend.Backend;
+import org.inria.restlet.database.api.impl.Restaurant;
 import org.restlet.Application;
 import org.restlet.Component;
 import org.restlet.Context;

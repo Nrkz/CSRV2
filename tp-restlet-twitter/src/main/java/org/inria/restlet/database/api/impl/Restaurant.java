@@ -1,9 +1,9 @@
-package org.inria.restlet.mta.database.api.impl;
+package org.inria.restlet.database.api.impl;
 
 import java.util.Collection;
 
-import org.inria.restlet.mta.backend.*;
-import org.inria.restlet.mta.database.api.Database;
+import org.inria.restlet.backend.*;
+import org.inria.restlet.database.api.Database;
 
 public class Restaurant implements Database{
 	

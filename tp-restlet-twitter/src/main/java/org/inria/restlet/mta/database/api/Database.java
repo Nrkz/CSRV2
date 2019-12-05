@@ -3,6 +3,8 @@ package org.inria.restlet.mta.database.api;
 import java.util.Collection;
 import java.util.List;
 
+import org.inria.restlet.mta.backend.Buffet;
+import org.inria.restlet.mta.backend.Client;
 import org.inria.restlet.mta.internals.Tweet;
 import org.inria.restlet.mta.internals.User;
 
@@ -24,7 +26,7 @@ public interface Database
      * @param age       The age of the user
      * @return  the new user.
      */
-    User createUser(String name, int age);
+    Client createClient(String name, int age);
 
 
     /**
@@ -33,7 +35,7 @@ public interface Database
      *
      * @return the list of users
      */
-    Collection<User> getUsers();
+    Collection<Client> getClient();
 
 
     /**
@@ -41,8 +43,8 @@ public interface Database
      *
      *  @return the user
      */
-    User getUser(int id);
+    Client getClient(int id);
     
-    Tweet getTweet(int id);
+    Buffet getBuffet(int id);
 
 }

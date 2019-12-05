@@ -8,6 +8,7 @@ public class Buffet {
 	private int viandecru;
 	private int legumecru;
 	private int nouilles;
+	// Création des sémaphores pour les différents bacs afin d'éviter un interblocage entre les bacs.
 	Semaphore semPoisson;
 	Semaphore semViande;
 	Semaphore semLegume;
@@ -40,6 +41,8 @@ public class Buffet {
 		return this.nouilles;
 	}
 
+	//La fonction stocker est utilisée par l'employé pour restocker les bacs. i=0 est le Poisson
+	//i=1 est la viande i=2 sont les légumes i =3 correspond aux nouilles.
 	public void stocker(int i) {
 		switch (i) {
 			case 0:
@@ -57,6 +60,7 @@ public class Buffet {
 		}
 	}
 	
+	//Pareil que stocker mais pour le Client.
 	public void destocker(int qt, int i) {
 		switch (i) {
 			case 0:

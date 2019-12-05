@@ -15,6 +15,7 @@ import org.inria.restlet.backend.Client;
  */
 public interface Database
 {
+	//On récupère les deux Objets qui nous intéresse.
     Client getClient(int id);
     
     Buffet getBuffet();

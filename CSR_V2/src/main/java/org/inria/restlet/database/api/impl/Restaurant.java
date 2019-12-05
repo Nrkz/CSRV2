@@ -27,6 +27,8 @@ public class Restaurant implements Database{
 		}
 	}
 	
+	
+	//On place un verrou sur l'entrée et la sortie des clients pour eviter d'en avoir plus de 25 en même temps dans le restaurant.
 	public synchronized void addClients() {
 		if(CLIENTS_MAX-nbClients<0) {
 			try {
@@ -46,6 +48,8 @@ public class Restaurant implements Database{
 
 	}
 
+	
+	//Tous les Threads sont lancés ici.
 	public void run() {
 		this.employe.start();
 		this.cuisto.start();

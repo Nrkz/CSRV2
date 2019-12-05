@@ -8,6 +8,8 @@ public class Client extends Thread{
 	private Stand stand;
 	private Restaurant restau;
 	int i;
+	
+	//Création des etats des clients.
 	private enum etats{
 		WAITING_TO_ENTER,
 		AT_THE_BUFFET,
@@ -15,6 +17,7 @@ public class Client extends Thread{
 		EATING,
 		OUT
 	}
+	
 	private etats etatcourant;
 
 	public Client (Buffet buffet, Stand stand,Restaurant restau,int i) {
@@ -25,6 +28,8 @@ public class Client extends Thread{
 		this.etatcourant = etats.WAITING_TO_ENTER;
 	}
 
+	
+	//Tout le chemin d'un client est retranscris dans cette méthode.
 	public void run() {
 		
 		entrerRestaurant();		
@@ -68,6 +73,7 @@ public class Client extends Thread{
 		for(int i = 0; i<4 ; i++) {
 			switch (i) {
 			case 0:
+				//Premier blocage du semaphore avec le temps que le client se sert.
 				try {
 					buffet.semPoisson.acquire();
 				} catch (InterruptedException e1) {
@@ -80,9 +86,11 @@ public class Client extends Thread{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				//Sémaphore relaché.
 				buffet.semPoisson.release();
 				int varP =(int)alea(100,0);
 				if(buffet.getPoisson() - varP < 0) {
+					//Dans ce cas là on bloque le sémaphore car la quantité restant dans les bacs n'est pas suffisant.
 					try {
 						buffet.semPoisson.acquire();
 					} catch (InterruptedException e1) {
@@ -161,6 +169,8 @@ public class Client extends Thread{
 			}
 		}
 	}
+	
+	//Renvoie un nombre aléatoire.
 	public double alea(int max,int min) {
 		return Math.random()* (max - min) + min;
 	}

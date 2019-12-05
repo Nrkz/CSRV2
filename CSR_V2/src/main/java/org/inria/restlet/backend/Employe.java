@@ -9,8 +9,10 @@ public class Employe extends Thread{
 	
 	public Employe (Buffet buffet) {
 		this.buffet=buffet;
+		//Mis en tant que démon pour que le Thread soit arrêté quand le principal (Client) s'arrête.
 		this.setDaemon(true);
 	}
+	
 	public void run(){
 
 		for(int i =0;i<4;i++) {
@@ -40,6 +42,7 @@ public class Employe extends Thread{
 					buffet.stocker(i);
 					buffet.semNouille.release(0);
 				}
+				//On retourne à -1 pour obtenir une boucle infinie.
 				i=-1;
 				break;
 			}

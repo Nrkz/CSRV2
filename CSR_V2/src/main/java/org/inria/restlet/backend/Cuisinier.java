@@ -6,9 +6,11 @@ public class Cuisinier extends Thread{
     
     public Cuisinier(Stand stand) {
     	this.stand = stand;
+		//Mis en tant que démon pour que le Thread soit arrêté quand le principal (Client) s'arrête.
     	this.setDaemon(true);
     }
     
+    //Le temps de cuisson est mis à 1 seconde.
     public void run() {
     	while(true) {
     		try {

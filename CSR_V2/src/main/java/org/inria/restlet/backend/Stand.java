@@ -4,6 +4,8 @@ public class Stand {
 		
 	public Stand(){}
 	
+	
+	//La cuisson contient aussi un blocage avec les cuisson des plats par le cuisinier.
 	public synchronized void cuire() {
 		notify();
 	}

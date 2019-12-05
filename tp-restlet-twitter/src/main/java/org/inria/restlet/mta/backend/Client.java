@@ -8,24 +8,36 @@ public class Client extends Thread{
 	private Stand stand;
 	private Restaurant restau;
 	int i;
-	
+	private enum etats{
+		WAITING_TO_ENTER,
+		AT_THE_BUFFET,
+		WAITING_THE_COOK,
+		EATING,
+		OUT
+	}
+	private etats etatcourant;
 
 	public Client (Buffet buffet, Stand stand,Restaurant restau,int i) {
 		this.buffet=buffet;
 		this.stand = stand;
 		this.restau = restau;
 		this.i=i;
+		this.etatcourant = etats.WAITING_TO_ENTER;
 	}
 
 	public void run() {
 		
 		entrerRestaurant();		
 		//System.out.println("Entree reussi pour thread :"+i);
+		setEtat(etats.AT_THE_BUFFET);
 		prendrePortion();
 		//System.out.println("Prendre Portion :"+i);
+		
 		cuirePlat();
+		setEtat(etats.EATING);
 		mangerPlat();
 		sortir();
+		setEtat(etats.OUT);
 		//System.out.println("Sortie reussi " +i);
 	}
 	
@@ -35,6 +47,7 @@ public class Client extends Thread{
 
 
 	public void cuirePlat() {
+		setEtat(etats.WAITING_THE_COOK);
 		stand.cuissonQueue();
 	}
 
@@ -152,4 +165,15 @@ public class Client extends Thread{
 		return Math.random()* (max - min) + min;
 	}
 	
+	public void setEtat(etats etatcourant) {
+		this.etatcourant = etatcourant;
+	}
+	
+	public etats getEtat() {
+		return this.etatcourant;
+	}
+	
+	public int getClientID() {
+		return this.i;
+	}
 }

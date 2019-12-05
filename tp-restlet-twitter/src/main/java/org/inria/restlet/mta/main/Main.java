@@ -1,7 +1,8 @@
 package org.inria.restlet.mta.main;
 
-import org.inria.restlet.mta.application.MyTwitterApplication;
+import org.inria.restlet.mta.application.MyRestaurantApplication;
 import org.inria.restlet.mta.backend.Backend;
+import org.inria.restlet.mta.database.api.impl.Restaurant;
 import org.restlet.Application;
 import org.restlet.Component;
 import org.restlet.Context;
@@ -35,15 +36,18 @@ public final class Main
         component.getServers().add(Protocol.HTTP, 8124);
 
         // Create an application
-        Application application = new MyTwitterApplication(context);
+        Application application = new MyRestaurantApplication(context);
 
         // Add the backend into component's context
-        Backend backend = new Backend();
+        Restaurant restau = new Restaurant();
+        Backend backend = new Backend(restau);
         context.getAttributes().put("backend", backend);
         component.getDefaultHost().attach(application);
 
         // Start the component
         component.start();
+    		
+    	restau.run();
     }
 
 }

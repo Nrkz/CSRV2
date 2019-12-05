@@ -1,7 +1,7 @@
 package org.inria.restlet.mta.backend;
 
 import org.inria.restlet.mta.database.api.Database;
-import org.inria.restlet.mta.database.api.impl.InMemoryDatabase;
+import org.inria.restlet.mta.database.api.impl.Restaurant;
 
 /**
  *
@@ -16,9 +16,9 @@ public class Backend
     /** Database.*/
     private Database database_;
 
-    public Backend()
+    public Backend(Restaurant restau)
     {
-        database_ = new InMemoryDatabase();
+        database_ = restau;
     }
 
     public Database getDatabase()

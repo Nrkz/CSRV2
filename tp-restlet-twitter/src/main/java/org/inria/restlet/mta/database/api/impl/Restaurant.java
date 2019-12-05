@@ -1,5 +1,7 @@
 package org.inria.restlet.mta.database.api.impl;
 
+import java.util.Collection;
+
 import org.inria.restlet.mta.backend.*;
 import org.inria.restlet.mta.database.api.Database;
 
@@ -42,6 +44,27 @@ public class Restaurant implements Database{
 		nbClients --;
 		notify();	
 
+	}
+
+	public void run() {
+		this.employe.start();
+		this.cuisto.start();
+		for (int i = 0; i < this.clients.length; i ++) {
+			this.clients[i].start();
+		}
+	}
+	
+	@Override
+	public Client getClient(int id) {
+		// TODO Auto-generated method stub
+		return clients[id];
+	}
+
+	
+	@Override
+	public Buffet getBuffet() {
+		// TODO Auto-generated method stub
+		return buffet;
 	}
 	
 }
